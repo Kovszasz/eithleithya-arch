@@ -1,0 +1,8 @@
+cd kanaszta-master/client
+docker image build -t kanaszta-client .
+cd ..
+cd server
+docker image build -t kanaszta-server .
+cd ..
+docker-compose build
+docker-compose up
