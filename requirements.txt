@@ -60,3 +60,4 @@ fpdf
 matplotlib
 django-sslserver
 psycopg2
+gunicorn
