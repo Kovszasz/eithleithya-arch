@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:8000 backend.wsgi
+worker: gunicorn --bind 0.0.0.0:8000 backend.wsgi
