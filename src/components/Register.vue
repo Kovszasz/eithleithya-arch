@@ -219,7 +219,7 @@ export default {
       for (var key in this.payload) {
           formData.append(key, this.payload[key])
       }
-      axios.post('api/customer/', formData, {
+      axios.post('https://eithleithya-api.herokuapp.com/api/customer/', formData, {
           headers: {
             'content-type': 'multipart/form-data'
          }
