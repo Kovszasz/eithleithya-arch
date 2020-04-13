@@ -4,7 +4,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api*': {
-        target: process.env.HOST + ': 8000'
+        target: process.env.HOST + ' : 8000'
       }
     }
   },
