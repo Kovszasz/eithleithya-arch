@@ -16,7 +16,7 @@ from decouple import config
 import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+print(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -25,9 +25,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
-
-ALLOWED_HOSTS = ['*','.herokuapp.com']
 
 
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
@@ -109,13 +106,6 @@ REST_FRAMEWORK = {
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-db_from_env = config('DATABASE_URL')
-DATABASES = {
-    'default': {}
-}
-
-DATABASES['default'].update(db_from_env)
 
 
 # Password validation
