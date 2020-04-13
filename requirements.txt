@@ -62,3 +62,6 @@ django-sslserver
 psycopg2
 gunicorn
 django-heroku
+django-postgres-copy
+python-dateutil
+python-decouple
