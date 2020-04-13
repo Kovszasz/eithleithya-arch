@@ -1,7 +1,7 @@
 from .base import *
 from decouple import config
 import dj_database_url
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*','.herokuapp.com']
 DATABASE_URL = config('DATABASE_URL')
