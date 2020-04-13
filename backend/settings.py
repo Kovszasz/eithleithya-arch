@@ -61,7 +61,7 @@ MIDDLEWARE_CLASSES=(
     'djangosecure.middleware.SecurityMiddleware'
 )
 
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+#SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -72,7 +72,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-SECURE_SSL_REDIRECT = False
+#SECURE_SSL_REDIRECT = False
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
