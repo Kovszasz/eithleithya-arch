@@ -1,10 +1,11 @@
 from .base import *
-
+from decouple import config
+import dj_database_url
 DEBUG = False
 
 ALLOWED_HOSTS = ['*','.herokuapp.com']
-db_from_env = config('DATABASE_URL')
+DATABASE_URL = config('DATABASE_URL')
 DATABASES:{
     'default':{}
 }
-DATABASES['default'].update(db_from_env)
+DATABASES['default']=dj_database_url.config(conn_max_age=600)
