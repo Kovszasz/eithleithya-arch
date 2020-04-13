@@ -28,11 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
-EMAIL_HOST_PASSWORD = '*********'
-EMAIL_HOST_USER='kovszasz@gmail.com'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-
-EMAIL_HOST = 'localhost'
+EMAIL_HOST = '0.0.0.0'
 EMAIL_PORT = 80
 
 #Are you trying to use a gmail account? Maybe try this then:

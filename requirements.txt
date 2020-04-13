@@ -61,3 +61,4 @@ matplotlib
 django-sslserver
 psycopg2
 gunicorn
+django-heroku
