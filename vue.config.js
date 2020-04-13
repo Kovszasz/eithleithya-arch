@@ -5,7 +5,7 @@ module.exports = {
     proxy: {
       '/api*': {
        // target: process.env.HOST + ' : 8000'
-       taret: 'https://eithleithya-api.herokuapp.com/api'
+       taret: 'https://eithleithya-api.herokuapp.com/'
       }
     }
   },
