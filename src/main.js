@@ -6,6 +6,7 @@ import store from './store'
 import router from '@/router'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@mdi/font/css/materialdesignicons.min.css'
+import $ from 'jquery'
 Vue.config.productionTip = false
 
 new Vue({

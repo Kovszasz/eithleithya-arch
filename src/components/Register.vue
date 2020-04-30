@@ -1,22 +1,16 @@
 <template>
-  <v-card
-    class="mx-auto"
-    max-width="500"
-  >
-    <v-card-title class="title font-weight-regular justify-space-between">
-      <span>{{ currentTitle }}</span>
-      <v-avatar
-        color="primary lighten-2"
-        class="subheading white--text"
-        size="24"
-        v-text="step"
-      />
-    </v-card-title>
-    <v-window v-model="step">
-      <v-window-item :value="0">
-        <div class="pa-4 text-center">
+  <div class="body">
+    <div id="all" class="all">
+      <div id="title" class="title">
+        Step 1 - Choose your file
+      </div>
+      <form class="slide">
+        <div
+          id="slides_a"
+          class="slides"
+        >
           <div
-            @dragend="dialog = true"
+            class="slides_a_bottom"
           >
             <v-file-input
               v-model="files"
@@ -50,135 +44,135 @@
             </v-file-input>
           </div>
         </div>
-      </v-window-item>
-      <v-window-item :value="1">
-        <v-card-text>
-          <v-text-field
-            v-model="payload.email"
-            placeholder="Email"
-            value="email..."
-          />
-          <span class="caption grey--text text--darken-1">
-            This is the email you will use to login to your Vuetify account
-          </span>
-        </v-card-text>
-      </v-window-item>
-      <v-window-item :value="2">
-        <v-card-text>
-          <v-text-field
-            v-model="payload.first_name"
-            placeholder="First name"
-            type="text"
-          />
-          <v-text-field
-            v-model="payload.last_name"
-            placeholder="Last name"
-            type="text"
-          />
-          <v-text-field
-            v-model="payload.address_1"
-            placeholder="Address line 1"
-            type="text"
-          />
-          <v-text-field
-            v-model="payload.address_2"
-            placeholder="Address line 2"
-            type="text"
-          />
-          <v-text-field
-            v-model="payload.ZIP_code"
-            placeholder="ZIP code"
-            type="text"
-          />
-          <v-text-field
-            v-model="payload.city"
-            placeholder="City"
-            type="text"
-          />
-          <v-text-field
-            v-model="payload.country"
-            placeholder="Country"
-            type="text"
-          />
-          <span class="caption grey--text text--darken-1">
-            Please enter a password for your account
-          </span>
-        </v-card-text>
-      </v-window-item>
-      <v-window-item :value="3">
-        <v-row>
-          <v-col
-            cols="12"
-            sm="6"
-            offset-sm="3"
+        <div
+          id="slides_b"
+          class="slides"
+        >
+          <div
+            class="slides_b_bottom"
           >
-            <v-card>
-              <v-container fluid>
-                <v-row>
-                  <v-col
-                    v-for="n in 9"
-                    :key="n"
-                    class="d-flex child-flex"
-                    cols="4"
-                  >
-                    <v-card
-                      flat
-                      tile
-                      class="d-flex"
-                    >
-                      <v-img
-                        :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
-                        :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
-                        aspect-ratio="1"
-                        class="grey lighten-2"
-                      >
-                        <template v-slot:placeholder>
-                          <v-row
-                            class="fill-height ma-0"
-                            align="center"
-                            justify="center"
-                          >
-                            <v-progress-circular
-                              indeterminate
-                              color="grey lighten-5"
-                            />
-                          </v-row>
-                        </template>
-                      </v-img>
-                    </v-card>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-window-item>
-    </v-window>
-    <v-divider />
-    <v-card-actions>
-      <v-btn
-        :disabled="step === 1"
-        text
-        @click="step--"
+            <v-card-text>
+              <v-text-field
+                id="first_name"
+                v-model="payload.first_name"
+                placeholder="First name"
+                type="text"
+              />
+              <v-text-field
+                id="last_name"
+                v-model="payload.last_name"
+                placeholder="Last name"
+                type="text"
+              />
+              <v-text-field
+                id="address_line"
+                v-model="payload.address_1"
+                placeholder="Address line"
+                type="text"
+              />
+              <v-text-field
+                id="email"
+                v-model="email"
+                placeholder="email"
+                type="text"
+              />
+              <v-text-field
+                id="zip_code"
+                v-model="payload.ZIP_code"
+                placeholder="ZIP code"
+                type="text"
+              />
+              <v-text-field
+                id="city"
+                v-model="payload.city"
+                placeholder="City"
+                type="text"
+              />
+              <v-text-field
+                id="country"
+                v-model="payload.country"
+                placeholder="Country"
+                type="text"
+              />
+            </v-card-text>
+          </div>
+        </div>
+        <div
+          id="slides_c"
+          class="slides"
+        >
+        </div>
+        <div
+          id="slides_d"
+          class="slides"
+        >
+          <div
+            class="slides_d_bottom"
+          >
+            <div
+              class="radio-paypal"
+            >
+              <label class="container">
+                <input type="radio" name="payment-option" value="alternate">
+                <span class="checkmark"></span>
+              </label>
+              <img
+                class="paypal-img"
+                src="@/assets/paypal.png"
+              />
+            </div>
+            <div
+              class="radio-crditcard"
+            >
+              <label class="container">
+                <input type="radio" name="payment-option" value="paypal">
+                <span class="checkmark"></span>
+              </label>
+              Bank- vagy hitelkártya
+            </div>
+          </div>
+        </div>
+      </form>
+      <div
+        class="buttons"
       >
-        Back {{ step }}
-      </v-btn>
-      <v-spacer />
-      <v-btn
-        @click="send_order"
-      >
-        Send
-      </v-btn>
-      <v-btn
-        color="primary"
-        depressed
-        @click="step++"
-      >
-        Next
-      </v-btn>
-      <div id="paypal-button-container" />
-    </v-card-actions>
-  </v-card>
+        <button
+          class="backbutt"
+          @click="SlideBack()"
+        >
+          back
+        </button>
+        <button
+          id="nextbutt"
+          class="nextbutt"
+          @click="SlideNext()"
+        >
+          next
+        </button>
+      </div>
+    </div>
+    <div class="checkform">
+      <form class="check">
+        <p id="sayhi" class="bigletter"></p>
+        <p class="letter">We have sent you an email with a validation number.<br>Please enter this number here to confirm your email:</p>
+        <input id="validation" placeholder="123456" type="text" maxlength="6"/>
+        <button type="button" @click="confirmbutt()">confirm</button>
+        <p class="smallletter">Send new email</p>
+        <p class="letter">Mailing address:</p>
+        <div class="information">
+          <p id="name" class="letter"></p>
+          <p id="address" class="letter"></p>
+          <p id="zipcodeb" class="letter"></p>
+          <p id="cityb" class="letter"></p>
+          <p id="countryb" class="letter"></p>
+        </div>
+        <div class="paybutt">
+          <div id="paypal-button-container-a"></div>
+          <div id="paypal-button-container-b"></div>
+        </div>
+      </form>
+    </div>
+  </div>
 </template>
 <script>
 import api from '../api.js'
@@ -186,23 +180,15 @@ import axios from 'axios'
 import LoadScript from 'vue-plugin-load-script'
 import Vue from 'vue'
 Vue.use(LoadScript)
-Vue.loadScript('https://www.paypal.com/sdk/js?client-id=AeZVhpLFruz2FcxjS3pCXiRapcEOBj8jtb0PuO-ISS_-EPb9q3cYcEZ1R3VIZl4BlnNelbo7yBMJmwnm')
 
 export default {
   name: 'Register',
   props: {
   },
   data: () => ({
+    val: 1,
     step: 0,
     payload: {
-      email: '',
-      ZIP_code: '',
-      address_1: '',
-      address_2: '',
-      last_name: '',
-      first_name: '',
-      city: '',
-      country: '',
       package: 'cheap'
     },
     files: []
@@ -218,26 +204,57 @@ export default {
     }
   },
   mounted() {
-    paypal.Buttons({
-      createOrder: function(data, actions) {
-        // This function sets up the details of the transaction, including the amount and line item details.
-        return actions.order.create({
-          purchase_units: [{
-            amount: {
-              value: '0.01'
-            }
-          }]
+    var FUNDING_SOURCESA = [
+          paypal.FUNDING.PAYPAL
+      ];
+    var FUNDING_SOURCESB = [
+          paypal.FUNDING.CARD
+      ];
+    document.querySelectorAll('input[name=payment-option]')
+    .forEach(function (el) {
+      el.addEventListener('change', function (event) {
+        // If PayPal is selected, show the PayPal button
+        if (event.target.value === 'paypal') {
+          document.body.querySelector('#paypal-button-container-a')
+            .style.display = 'none';
+          document.body.querySelector('#paypal-button-container-b')
+            .style.display = 'block';
+        }
+
+        // If alternate funding is selected, show a different button
+        if (event.target.value === 'alternate') {
+          document.body.querySelector('#paypal-button-container-a')
+            .style.display = 'block';
+          document.body.querySelector('#paypal-button-container-b')
+            .style.display = 'none';
+        }
+      });
+    });
+    // Loop over each funding source / payment method
+    FUNDING_SOURCESA.forEach(function(fundingSource) {
+        // Initialize the buttons
+        var button = paypal.Buttons({
+            fundingSource: fundingSource
         });
-      },
-      onApprove: function(data, actions) {
-        // This function captures the funds from the transaction.
-        return actions.order.capture().then(function(details) {
-        // This function shows a transaction success message to your buyer.
-          alert('Transaction completed by ' + details.payer.name.given_name);
+
+        // Check if the button is eligible
+        if (button.isEligible()) {
+            // Render the standalone button for that funding source
+            button.render('#paypal-button-container-a');
+        }
+    });
+    FUNDING_SOURCESB.forEach(function(fundingSource) {
+        // Initialize the buttons
+        var button = paypal.Buttons({
+            fundingSource: fundingSource
         });
-      }
-  }).render('#paypal-button-container');
-  // This function displays Smart Payment Buttons on your web page.
+
+        // Check if the button is eligible
+        if (button.isEligible()) {
+            // Render the standalone button for that funding source
+            button.render('#paypal-button-container-b');
+        }
+    });
   },
   methods: {
     send_order () {
@@ -256,7 +273,317 @@ export default {
       }).then(() => {
           console.log('success')
         })
+    },
+    SlideBack() {
+      if (this.val === 2) {
+        $('.slide').css('transform', 'translateX(-0px)');
+        $('.backbutt').css('opacity', '0');
+        $('.all').css('height', '250px');
+        document.getElementById('title').innerHTML = 'Step 1 - Choose your file';
+        this.val = 1;
+      } else if (this.val === 3) {
+        $('.slide').css('transform', 'translateX(-400px)');
+        $('.all').css('height', '90%');
+        document.getElementById('title').innerHTML = 'Step 2 - Some information';
+        this.val = 2;
+      } else if (this.val === 4) {
+        $('.slide').css('transform', 'translateX(-800px)');
+        $('.all').css('height', '350px');
+        document.getElementById('title').innerHTML = 'Step 2 - Choose service';
+        document.getElementById('nextbutt').innerHTML = 'next';
+        $('.backbutt').css('right', '100px');
+        $('.nextbutt').css('width', '50px');
+        $('.nextbutt').css('background-color', 'white');
+        $('.nextbutt').css('color', 'gray');
+        this.val = 3;
+      }
+    },
+    SlideNext() {
+      if (this.val === 1) {
+        $('.slide').css('transform', 'translateX(-400px)');
+        $('.backbutt').css('opacity', '1');
+        $('.all').css('height', '90%');
+        document.getElementById('title').innerHTML = 'Step 2 - Some information';
+        this.val = 2;
+      } else if (this.val === 2) {
+        $('.slide').css('transform', 'translateX(-800px)');
+        $('.all').css('height', '350px');
+        document.getElementById('title').innerHTML = 'Step 3 - Choose service';
+        this.val = 3;
+      } else if (this.val === 3) {
+        $('.slide').css('transform', 'translateX(-1200px)');
+        $('.all').css('height', '350px');
+        document.getElementById('title').innerHTML = 'Step 4 - Pay with';
+        document.getElementById('nextbutt').innerHTML = 'check';
+        $('.backbutt').css('right', '160px');
+        $('.nextbutt').css('width', '100px');
+        $('.nextbutt').css('background-color', '#37AEF2');
+        $('.nextbutt').css('color', 'white');
+        this.val = 4;
+      } else if (this.val === 4) {
+        var firstname = document.getElementById('first_name').value;
+        var lastname = document.getElementById('last_name').value;
+        var addressline = document.getElementById('address_line').value;
+        var email = document.getElementById('email').value;
+        var zipcode = document.getElementById('zip_code').value;
+        var city = document.getElementById('city').value;
+        var country = document.getElementById('country').value;
+        document.getElementById('sayhi').innerHTML = 'Hi ' + firstname + '!';
+        document.getElementById('name').innerHTML = firstname + ' ' + lastname;
+        document.getElementById('address').innerHTML = addressline;
+        document.getElementById('zipcodeb').innerHTML = zipcode;
+        document.getElementById('cityb').innerHTML = city;
+        document.getElementById('countryb').innerHTML = country;
+        $('.checkform').show();
+      }
+    },
+    confirmbutt() {
+      var ertek = 123456;
+      var code = document.getElementById('validation').value;
+      if (parseInt(code) === ertek) {
+        $('.paybutt').css('opacity', '1');
+        $('.information').css('opacity', '1');
+        $('.paybutt').css('pointer-events', 'auto');
+      }
     }
   }
 }
 </script>
+<style>
+.body{
+  width: 100%;
+  height: 100%;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none;
+}
+.all{
+  position: relative;
+  margin: auto;
+  margin-top: 40px;
+  width: 400px;
+  height: 250px;
+  border: solid lightgray 2px;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: height 0.4s;
+  background-color: white;
+}
+.title{
+padding-top: 5px;
+padding-left: 20px;
+color: gray;
+}
+.slide{
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 1602px;
+  height: 86%;
+  transform: translateX(-0px);
+  transition: transform 0.2s;
+}
+.slides{
+  position: relative;
+  width: 400px;
+  height: 100%;
+  float: left;
+}
+#slides_a{
+  /*background-color: white;*/
+}
+#slides_b{
+  /*background-color: lightgray;*/
+}
+#slides_c{
+  /*background-color: gray;*/
+}
+#slides_d{
+  /*background-color: gray;*/
+}
+.slides_a_bottom{
+  width: 350px;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.slides_d_bottom{
+  width: 350px;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+.slides_b_bottom{
+  height: 100%;
+  width: 350px;
+  margin-left: 20px;
+  overflow: auto;
+}
+.slides_b_bottom::-webkit-scrollbar {
+    display: none;
+}
+.radio-crditcard{
+  background-color: #2C2E2F;
+  width: 100%;
+  border-radius: 4px;
+  height: 50px;
+  text-align: center;
+  color: white;
+  line-height: 50px;
+  margin-top: 18px;
+}
+.radio-paypal{
+  background-color: #ffc439;
+  width: 100%;
+  border-radius: 4px;
+  height: 50px;
+  text-align: center;
+  color: white;
+  line-height: 50px;
+}
+.paypal-img{
+  width: 90px;
+  margin-top: 13px;
+  margin-left: -25px;
+}
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  background-color: #ccc;
+  margin-top: 12px;
+  left: 40px;
+}
+.container:hover input ~ .checkmark {
+  background-color: #B2B2B2;
+}
+.container input:checked ~ .checkmark {
+  background-color: #37AEF2;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 7px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.buttons{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  border-top: solid 1px lightgray;
+}
+.backbutt{
+  position: absolute;
+  bottom: 15px;
+  right: 100px;
+  width: 50px;
+  height: 30px;
+  line-height: 27px;
+  border-radius: 5px;
+  color: gray;
+  opacity: 0;
+  transition: opacity 0.2s;
+  box-shadow: 0px 2px 5px lightgray;
+  font-weight: bold;
+  transition: right 0.2s;
+}
+.nextbutt{
+  position: absolute;
+  bottom: 15px;
+  right: 40px;
+  width: 50px;
+  height: 30px;
+  line-height: 27px;
+  border-radius: 5px;
+  color: gray;
+  box-shadow: 0px 2px 5px lightgray;
+  font-weight: bold;
+  transition: width 0.2s, background-color 0.2s;
+}
+.checkform{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 10;
+  vertical-align: bottom;
+}
+.check{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: -250px;
+  width: 800px;
+  height: 500px;
+  background-color: white;
+}
+.smallletter{
+  font-size: 14px;
+  margin-left: 30px;
+}
+.letter{
+  font-size: 17px;
+  margin-left: 30px;
+}
+.bigletter{
+  font-size: 20px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+#validation{
+  border: 1px solid black;
+  margin-left: 30px;
+  border-radius: 10px;
+  height: 30px;
+  width: 100px;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter";
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: 10px;
+  letter-spacing: 2px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: gray;
+  opacity: 0.5; /* Firefox */
+}
+.information{
+  opacity: 0.4;
+  width: 450px;
+  height: 300px;
+}
+.paybutt{
+  position: absolute;
+  width: 300px;
+  right: 40px;
+  top: 60px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+</style>
